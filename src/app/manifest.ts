@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: 'A blank website for fun purposes.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#000000',
-    theme_color: '#000000',
+    background_color: 'var(--black)',
+    theme_color: 'var(--black)',
     icons: [
       {
         src: '/favicon.ico',

@@ -9,8 +9,7 @@
   box-sizing: border-box;
   display: flex;
   justify-content: flex-end;
-  font-family: "Hiragino Kaku Gothic Pro", Osaka, "MS PGothic", arial, helvetica,
-    sans-serif;
+  font-family: sans-serif;
   z-index: 1000;
   backdrop-filter: blur(5px);
   transition: background-color 0.3s ease;
@@ -24,7 +23,8 @@
 
 /* Hamburger button styles */
 #hamburger-menu-button {
-  width: 40px;
+  width: 64px;
+  height: 64px;
   margin: auto;
 }
 
@@ -35,6 +35,23 @@
   height: 28px;
   margin: 0 auto 24px;
   cursor: pointer;
+  transform: rotate(0);
+  transition: all 0.5s;
+  margin-top: 35px;
+}
+
+/* Menu icon before element (circle) */
+#hamburger-menu-icon::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -35px 0 0 -35px;
+  display: block;
+  content: "";
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 3px solid transparent;
 }
 
 /* Common styles for all hamburger lines */
@@ -45,10 +62,10 @@
   left: 0;
   display: inline-block;
   width: 100%;
-  height: var(--line-height);
-  border-radius: var(--line-radius);
-  transition: var(--base-transition);
-  background: var(--white);
+  height: 4px;
+  border-radius: 5px;
+  transition: all 0.5s;
+  background: var(--purple);
 }
 
 /* Top hamburger line */
@@ -74,51 +91,26 @@
   width: 100%;
   text-align: center;
   font-size: 12px;
-  color: var(--white);
-  transition: var(--base-transition);
+  color: var(--purple);
+  transition: all 0.5s;
 }
 
 /* Menu text content */
-.#hamburger-menu-text::after {
+#hamburger-menu-text::after {
   display: block;
   content: "MENU";
 }
 
-/* Special hamburger style - circular animation */
-#hamburger-menu-button {
-  width: 64px;
-  height: 64px;
-}
-
-#hamburger-menu-button #hamburger-menu-icon {
-  transform: rotate(0);
-  transition: var(--base-transition);
-  margin-top: 35px;
-}
-
-#hamburger-menu-button #hamburger-menu-icon::before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -35px 0 0 -35px;
-  display: block;
-  content: "";
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  border: 3px solid transparent;
-}
-
 /* Hover animations for hamburger lines */
-#hamburger-menu-button #hamburger-menu-icon:hover #hamburger-menu-line-top {
+#hamburger-menu-icon:hover #hamburger-menu-line-top {
   transform: translateX(8px);
 }
 
-#hamburger-menu-button #hamburger-menu-icon:hover #hamburger-menu-line-middle {
+#hamburger-menu-icon:hover #hamburger-menu-line-middle {
   transform: translateX(-4px);
 }
 
-#hamburger-menu-button #hamburger-menu-icon:hover #hamburger-menu-line-bottom {
+#hamburger-menu-icon:hover #hamburger-menu-line-bottom {
   transform: translateX(8px);
 }
 
@@ -151,16 +143,16 @@
     transform: rotate(0);
   }
   25% {
-    border-color: transparent var(--white) transparent transparent;
+    border-color: transparent var(--purple) transparent transparent;
   }
   50% {
-    border-color: transparent var(--white) var(--white) transparent;
+    border-color: transparent var(--purple) var(--purple) transparent;
   }
   75% {
-    border-color: transparent var(--white) var(--white) var(--white);
+    border-color: transparent var(--purple) var(--purple) var(--purple);
   }
   100% {
-    border-color: var(--white);
+    border-color: var(--purple);
     transform: rotate(360deg);
   }
 }
@@ -180,7 +172,7 @@
 }
 
 /* Active state for navigation overlay */
-#navigation-overlay.navActive {
+#navigation-overlay.active {
   opacity: 1;
   visibility: visible;
 }
@@ -190,7 +182,7 @@
   position: fixed;
   top: 0;
   right: -320px;
-  width: 300px;
+  width: 150px;
   height: 100vh;
   background-color: rgba(26, 26, 26, 0.7);
   padding: 100px 20px 20px;
@@ -201,7 +193,7 @@
 }
 
 /* Active state for navigation panel */
-#navigation-overlay.navActive #navigation-panel {
+#navigation-overlay.active #navigation-panel {
   right: 20px;
 }
 
@@ -227,7 +219,8 @@
 #navigation-link-services,
 #navigation-link-projects,
 #navigation-link-contact {
-  color: #9b59b6;
+  /* color: #9b59b6; */
+  color: var(--purple);
   text-decoration: none;
   font-size: 18px;
   font-family: "Roboto", sans-serif;
@@ -240,5 +233,5 @@
 #navigation-link-services:hover,
 #navigation-link-projects:hover,
 #navigation-link-contact:hover {
-  color: #8e44ad;
+  color: var(--white);
 }

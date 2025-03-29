@@ -1,46 +1,46 @@
 'use client';
 
 import { useState } from 'react';
-import './HamburgerMenu.css'; // Import regular CSS
+import './HamburgerMenu.css'; // Import regular CSS instead of CSS module
 
 export default function HamburgerMenu() {
   const [isActive, setIsActive] = useState(false);
 
-  const toggleMenu = () => {
-    setIsActive(!isActive);
-  };
-
   return (
-    <div id="navigation-container">
-      {/* Combined hamburger menu and navigation overlay */}
+    <>
+      {/* Main container for the hamburger menu button */}
       <div id="hamburger-menu-container">
-        {/* Hamburger button with active state toggle */}
-        <div 
-          id="hamburger-menu-button" 
-          className={isActive ? 'active' : ''}
-          onClick={toggleMenu}
-        >
-          {/* Three lines of the hamburger icon */}
-          <span id="hamburger-menu-line-top"></span>
-          <span id="hamburger-menu-line-middle"></span>
-          <span id="hamburger-menu-line-bottom"></span>
-          
-          {/* Text that shows MENU/CLOSE */}
-          <span id="hamburger-menu-text"></span>
-        </div>
+        <section id="hamburger-menu-section">
+          {/* Hamburger button with active state toggle */}
+          <div 
+            id="hamburger-menu-button" 
+            className={isActive ? 'active' : ''}
+          >
+            {/* Clickable icon with three lines */}
+            <div 
+              id="hamburger-menu-icon" 
+              onClick={() => setIsActive(!isActive)}
+            >
+              {/* Three lines of the hamburger icon */}
+              <span id="hamburger-menu-line-top"></span>
+              <span id="hamburger-menu-line-middle"></span>
+              <span id="hamburger-menu-line-bottom"></span>
+            </div>
+            {/* Text container that shows MENU/CLOSE */}
+            <div id="hamburger-menu-text-container">
+              <span id="hamburger-menu-text"></span>
+            </div>
+          </div>
+        </section>
       </div>
       
       {/* Navigation overlay that appears when menu is active */}
       <div 
         id="navigation-overlay" 
         className={isActive ? 'active' : ''}
-        onClick={() => setIsActive(false)}  // Close when clicking the overlay
       >
         {/* Navigation panel containing menu links */}
-        <nav 
-          id="navigation-panel"
-          onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the panel
-        >
+        <nav id="navigation-panel">
           <ul id="navigation-menu-list">
             {/* Navigation menu items */}
             <li id="navigation-menu-item-home"><a href="#" id="navigation-link-home">Home</a></li>
@@ -51,6 +51,6 @@ export default function HamburgerMenu() {
           </ul>
         </nav>
       </div>
-    </div>
+    </>
   );
 } 

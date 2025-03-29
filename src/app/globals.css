@@ -1,19 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
-  --gray: #333333;
   --white: #ffffff;
+  --purple: #9d00ff;
+  --black: #000000;
   --base-transition: all 0.5s;
-  --line-height: 4px;
-  --line-radius: 5px;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: #000000;
+  color: var(--white);
+  background: var(--black);
 }

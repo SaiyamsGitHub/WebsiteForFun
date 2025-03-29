@@ -2,15 +2,15 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const viewport: Viewport = {
-  themeColor: '#000000',
+  themeColor: 'var(--black)',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
 };
 
 export const metadata: Metadata = {
-  title: 'Blank Website',
-  description: 'A blank website with a black background',
+  title: 'Fun Website',
+  description: 'A blank website for Fun',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://your-domain.com'),
   robots: {
     index: true,
@@ -46,8 +46,8 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className="flex flex-col min-h-screen bg-black text-white">
-        <main className="flex-grow">
+      <body id="HomeScreenBody" className="Home-Screen-Body">
+        <main id="HomeScreenMain" className="Home-Screen-Main">
           {children}
         </main>
       </body>

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
+import CursorBubble from '@/components/CursorBubble/CursorBubble';
 
 export const viewport: Viewport = {
   themeColor: 'var(--black)',
@@ -50,6 +51,7 @@ export default function RootLayout({
         <main id="HomeScreenMain" className="Home-Screen-Main">
           {children}
         </main>
+        <CursorBubble />
       </body>
     </html>
   );

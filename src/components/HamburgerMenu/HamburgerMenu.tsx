@@ -2,26 +2,33 @@
 
 import { useState } from 'react';
 import './HamburgerMenu.css'; // Import regular CSS instead of CSS module
+import Link from 'next/link';
 
 export default function HamburgerMenu() {
   const [isActive, setIsActive] = useState(false);
 
+  // Toggle menu active state
+  const toggleMenu = () => {
+    setIsActive(!isActive);
+  };
+
   return (
     <>
-      {/* Main container for the hamburger menu button */}
-      <div id="hamburger-menu-container">
+      {/* Main container for menu button */}
+      <div 
+        id="hamburger-menu-container" 
+        className={isActive ? 'active' : ''}
+      >
+        {/* Menu button section */}
         <section id="hamburger-menu-section">
-          {/* Hamburger button with active state toggle */}
+          {/* Hamburger button that toggles menu state */}
           <div 
             id="hamburger-menu-button" 
-            className={isActive ? 'active' : ''}
+            className={isActive ? 'active' : ''} 
+            onClick={toggleMenu}
           >
-            {/* Clickable icon with three lines */}
-            <div 
-              id="hamburger-menu-icon" 
-              onClick={() => setIsActive(!isActive)}
-            >
-              {/* Three lines of the hamburger icon */}
+            {/* Hamburger icon with animated lines */}
+            <div id="hamburger-menu-icon">
               <span id="hamburger-menu-line-top"></span>
               <span id="hamburger-menu-line-middle"></span>
               <span id="hamburger-menu-line-bottom"></span>
@@ -43,11 +50,21 @@ export default function HamburgerMenu() {
         <nav id="navigation-panel">
           <ul id="navigation-menu-list">
             {/* Navigation menu items */}
-            <li id="navigation-menu-item-home"><a href="#" id="navigation-link-home">Home</a></li>
-            <li id="navigation-menu-item-about"><a href="#" id="navigation-link-about">About Us</a></li>
-            <li id="navigation-menu-item-services"><a href="#" id="navigation-link-services">Services</a></li>
-            <li id="navigation-menu-item-projects"><a href="#" id="navigation-link-projects">Projects</a></li>
-            <li id="navigation-menu-item-contact"><a href="#" id="navigation-link-contact">Contact Us</a></li>
+            <li id="navigation-menu-item-home">
+              <Link href="/" id="navigation-link-home">Home</Link>
+            </li>
+            <li id="navigation-menu-item-about">
+              <Link href="/about" id="navigation-link-about">About Us</Link>
+            </li>
+            <li id="navigation-menu-item-services">
+              <Link href="/services" id="navigation-link-services">Services</Link>
+            </li>
+            <li id="navigation-menu-item-projects">
+              <Link href="/projects" id="navigation-link-projects">Projects</Link>
+            </li>
+            <li id="navigation-menu-item-contact">
+              <Link href="/contact" id="navigation-link-contact">Contact Us</Link>
+            </li>
           </ul>
         </nav>
       </div>

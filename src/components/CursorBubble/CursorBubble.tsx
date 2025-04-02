@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
-import dynamic from 'next/dynamic';
 
 // Extend Window interface to include our custom property
 declare global {
@@ -13,7 +12,8 @@ declare global {
 // Define shape types for different elements
 type BubbleShape = 'circle' | 'square' | 'rounded-square' | 'triangle';
 
-const CursorBubbleImpl = () => {
+const CursorBubble = () => {
+  const [mounted, setMounted] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [bubblePosition, setBubblePosition] = useState({ x: 0, y: 0 });
   const [isMoving, setIsMoving] = useState(false);
@@ -26,7 +26,15 @@ const CursorBubbleImpl = () => {
   const magneticRadius = 30; // Radius in pixels where magnetic effect starts
   const magneticPower = 0.4; // Power of the magnetic effect (0-1)
   
+  // Mount effect - ensure we're on the client side
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    // Skip effects on server-side
+    if (!mounted) return;
+    
     // Function to handle mouse movement
     const handleMouseMove = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY });
@@ -129,9 +137,12 @@ const CursorBubbleImpl = () => {
       document.removeEventListener('pointerenter', handlePointerEnter);
       clearTimeout(window.moveTimeout);
     };
-  }, []);
+  }, [mounted]); // Add mounted as a dependency
   
   useEffect(() => {
+    // Skip animation on server-side
+    if (!mounted) return;
+    
     // Animate the bubble to follow the cursor with dynamic speed
     const animateBubble = () => {
       setBubblePosition(prev => {
@@ -192,7 +203,12 @@ const CursorBubbleImpl = () => {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [position, isMoving, isNearInteractive, magneticTarget]);
+  }, [position, isMoving, isNearInteractive, magneticTarget, mounted]); // Add mounted as a dependency
+
+  // If not mounted (server-side), don't render anything
+  if (!mounted) {
+    return null;
+  }
 
   // Get style based on current shape
   const getShapeStyles = () => {
@@ -270,8 +286,5 @@ const CursorBubbleImpl = () => {
     />
   );
 };
-
-// Use dynamic import with SSR disabled for the implementation
-const CursorBubble = dynamic(() => Promise.resolve(CursorBubbleImpl), { ssr: false });
 
 export default CursorBubble; 

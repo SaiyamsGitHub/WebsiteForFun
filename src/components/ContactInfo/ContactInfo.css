@@ -1,0 +1,199 @@
+/* Main container styles */
+#contact-info-container {
+  text-align: left;
+  padding-top: 3rem;
+}
+
+/* Common styles for contact blocks */
+#contact-info-location-block,
+#contact-info-phone-block,
+#contact-info-email-block {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slideIn 0.5s ease forwards;
+}
+
+#contact-info-phone-block {
+  animation-delay: 0.2s;
+}
+
+#contact-info-email-block {
+  animation-delay: 0.4s;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Icon container styles */
+#contact-info-location-icon-container,
+#contact-info-phone-icon-container,
+#contact-info-email-icon-container {
+  background-color: var(--purple);
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact-info-location-icon-container:hover,
+#contact-info-phone-icon-container:hover,
+#contact-info-email-icon-container:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 15px rgba(157, 0, 255, 0.5);
+}
+
+/* Icon styles */
+#contact-info-location-icon,
+#contact-info-phone-icon,
+#contact-info-email-icon {
+  color: white;
+  font-size: 1.25rem;
+}
+
+/* Content container styles */
+#contact-info-location-content,
+#contact-info-phone-content,
+#contact-info-email-content {
+  margin-left: 1rem;
+}
+
+/* Label styles */
+#contact-info-location-label,
+#contact-info-phone-label,
+#contact-info-email-label {
+  color: var(--purple);
+  font-weight: bold;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+/* Info text styles */
+#contact-info-location-text,
+#contact-info-phone-text,
+#contact-info-email-text {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+/* Connect with us section */
+#contact-info-social-block {
+  margin-top: 4rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.5s ease forwards 0.6s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#contact-info-social-heading {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+#contact-info-social-rect {
+  background-color: var(--purple);
+  height: 2rem;
+  width: 4rem;
+  border-radius: 0.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+#contact-info-social-rect::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+#contact-info-social-label {
+  margin-left: 1rem;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/* Social icons container */
+#contact-info-social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Social icon individual styles */
+#contact-info-social-facebook,
+#contact-info-social-twitter,
+#contact-info-social-instagram,
+#contact-info-social-linkedin {
+  font-size: 2rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+#contact-info-social-facebook {
+  color: #1877f2;
+}
+
+#contact-info-social-twitter {
+  color: #1da1f2;
+}
+
+#contact-info-social-instagram {
+  color: #e4405f;
+}
+
+#contact-info-social-linkedin {
+  color: #0a66c2;
+}
+
+#contact-info-social-facebook:hover,
+#contact-info-social-twitter:hover,
+#contact-info-social-instagram:hover,
+#contact-info-social-linkedin:hover {
+  /* transform: translateY(-10px); */
+  transform: scale(1.5);
+  filter: drop-shadow(0 0 8px currentColor);
+}

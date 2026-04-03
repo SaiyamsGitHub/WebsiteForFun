@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
-    output: 'standalone',
+    // GitHub Pages needs static HTML in `out/`; standalone is for Node/Docker only.
+    output: process.env.STATIC_EXPORT === 'true' ? 'export' : 'standalone',
     poweredByHeader: false,
     productionBrowserSourceMaps: false,
 

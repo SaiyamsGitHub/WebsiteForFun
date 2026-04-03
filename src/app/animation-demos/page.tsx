@@ -125,9 +125,9 @@ export default function AnimationDemos() {
   useEffect(() => {
     if (!isClient || activeDemo !== 'parallax') return;
     
-    const parallaxContainer = document.querySelector('.demo-parallax');
-    const parallaxBg = document.querySelector('.parallax-background');
-    const parallaxMid = document.querySelector('.parallax-midground');
+    const parallaxContainer = document.querySelector<HTMLElement>('.demo-parallax');
+    const parallaxBg = document.querySelector<HTMLElement>('.parallax-background');
+    const parallaxMid = document.querySelector<HTMLElement>('.parallax-midground');
     
     if (!parallaxContainer || !parallaxBg || !parallaxMid) return;
     
@@ -155,8 +155,8 @@ export default function AnimationDemos() {
   useEffect(() => {
     if (!isClient || activeDemo !== '3d-rotation') return;
     
-    const rotationContainer = document.querySelector('.demo-3d-rotation');
-    const cube = document.querySelector('.rotating-cube');
+    const rotationContainer = document.querySelector<HTMLElement>('.demo-3d-rotation');
+    const cube = document.querySelector<HTMLElement>('.rotating-cube');
     
     if (!rotationContainer || !cube) return;
     

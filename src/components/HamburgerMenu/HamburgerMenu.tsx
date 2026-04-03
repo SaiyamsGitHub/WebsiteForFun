@@ -62,6 +62,9 @@ export default function HamburgerMenu() {
             <li id="navigation-menu-item-projects">
               <Link href="/projects" id="navigation-link-projects">Projects</Link>
             </li>
+            <li id="navigation-menu-item-games">
+              <Link href="/games" id="navigation-link-games">Games</Link>
+            </li>
             <li id="navigation-menu-item-contact">
               <Link href="/contact" id="navigation-link-contact">Contact Us</Link>
             </li>

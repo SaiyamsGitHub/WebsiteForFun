@@ -216,6 +216,7 @@
 #navigation-menu-item-about,
 #navigation-menu-item-services,
 #navigation-menu-item-projects,
+#navigation-menu-item-games,
 #navigation-menu-item-contact {
   margin-bottom: 20px;
 }
@@ -225,13 +226,15 @@
 #navigation-link-about,
 #navigation-link-services,
 #navigation-link-projects,
+#navigation-link-games,
 #navigation-link-contact {
-  /* color: #9b59b6; */
   color: var(--purple);
   text-decoration: none;
   font-size: 18px;
   font-family: "Roboto", sans-serif;
   transition: color 0.3s ease;
+  position: relative;
+  display: inline-block;
 }
 
 /* Navigation link hover effect */
@@ -239,6 +242,88 @@
 #navigation-link-about:hover,
 #navigation-link-services:hover,
 #navigation-link-projects:hover,
+#navigation-link-games:hover,
 #navigation-link-contact:hover {
   color: var(--white);
+}
+
+/* Link underline animation on hover */
+#navigation-link-home::before,
+#navigation-link-about::before,
+#navigation-link-services::before,
+#navigation-link-projects::before,
+#navigation-link-games::before,
+#navigation-link-contact::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--white);
+  transition: width 0.3s ease;
+}
+
+#navigation-link-home:hover::before,
+#navigation-link-about:hover::before,
+#navigation-link-services:hover::before,
+#navigation-link-projects:hover::before,
+#navigation-link-games:hover::before,
+#navigation-link-contact:hover::before {
+  width: 100%;
+}
+
+/* Menu item animations */
+#navigation-menu-item-home {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade-slide-in 0.3s ease forwards;
+  animation-delay: 0.1s;
+}
+
+#navigation-menu-item-about {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade-slide-in 0.3s ease forwards;
+  animation-delay: 0.2s;
+}
+
+#navigation-menu-item-services {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade-slide-in 0.3s ease forwards;
+  animation-delay: 0.3s;
+}
+
+#navigation-menu-item-projects {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade-slide-in 0.3s ease forwards;
+  animation-delay: 0.4s;
+}
+
+#navigation-menu-item-games {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade-slide-in 0.3s ease forwards;
+  animation-delay: 0.5s;
+}
+
+#navigation-menu-item-contact {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade-slide-in 0.3s ease forwards;
+  animation-delay: 0.6s;
+}
+
+/* Fade and slide in animation */
+@keyframes fade-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

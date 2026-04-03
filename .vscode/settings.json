@@ -3,5 +3,6 @@
   "tailwindCSS.emmetCompletions": true,
   "editor.quickSuggestions": {
     "strings": true
-  }
+  },
+  "kiroAgent.agentAutonomy": "Supervised"
 } 

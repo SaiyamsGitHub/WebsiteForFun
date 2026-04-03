@@ -246,6 +246,12 @@ export default function GamesPage() {
         
         <div className="games-footer">
           <p>New games are added regularly. Check back soon for more challenges!</p>
+          /*For animation demos*/
+          <div className="animation-demos-link">
+            <Link href="/animation-demos">
+              Explore Animation Techniques
+            </Link>
+          </div>
         </div>
       </div>
     </div>

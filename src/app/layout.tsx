@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import CursorBubble from '@/components/CursorBubble/CursorBubble';
 import ThreeBackground from '@/components/ThreeBackground/ThreeBackground';
+import PageWrapper from '@/components/PageWrapper';
+import { SchemaMarkup } from '@/components/SEO';
 
 export const viewport: Viewport = {
   themeColor: 'var(--black)',
@@ -46,15 +48,25 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || DEFAULT_URL;
+  
   return (
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <SchemaMarkup
+          title="Fun Website"
+          description="A blank website for fun purposes."
+          siteUrl={siteUrl}
+          type="WebSite"
+        />
       </head>
       <body id="HomeScreenBody" className="Home-Screen-Body">
         <ThreeBackground />
         <main id="HomeScreenMain" className="Home-Screen-Main">
-          {children}
+          <PageWrapper>
+            {children}
+          </PageWrapper>
         </main>
         <CursorBubble />
       </body>

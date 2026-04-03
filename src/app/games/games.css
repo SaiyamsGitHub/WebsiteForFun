@@ -324,12 +324,48 @@
 
 /* Footer */
 .games-footer {
+  margin-top: 40px; /*For animation demos*/
   text-align: center;
+  padding: 20px; /*For animation demos*/
   padding-top: 30px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--text-muted);
   opacity: 0;
   animation: fade-in 0.8s ease-out 1.3s forwards;
+}
+
+/*For animation demos*/
+.games-footer p {
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+/*For animation demos*/
+.animation-demos-link {
+  margin-top: 20px;
+}
+
+/*For animation demos*/
+.animation-demos-link a {
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(
+    to right,
+    var(--primary-purple),
+    var(--secondary-purple)
+  );
+  color: var(--text-white);
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(157, 0, 255, 0.3);
+}
+
+/*For animation demos*/
+.animation-demos-link a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(157, 0, 255, 0.5);
 }
 
 /* Responsive design */

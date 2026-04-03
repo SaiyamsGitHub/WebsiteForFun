@@ -1,0 +1,21 @@
+.page-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.page-content {
+  width: 100%;
+  min-height: 100vh;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.page-content.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.page-content.visible {
+  opacity: 1;
+  pointer-events: auto;
+}

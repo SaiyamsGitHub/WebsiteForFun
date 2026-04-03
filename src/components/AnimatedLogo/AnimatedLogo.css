@@ -1,0 +1,221 @@
+:root {
+  --logo-primary: #9d00ff;
+  --logo-secondary: #a44dff;
+  --logo-accent: #ff7bac;
+  --logo-dark: #33007a;
+  --logo-glow: rgba(157, 0, 255, 0.5);
+}
+
+/* Logo Container */
+.animated-logo-container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: all 1s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  will-change: transform, opacity;
+}
+
+.center-position {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.corner-position {
+  top: 20px;
+  left: 20px;
+  transform: translate(0, 0) scale(0.5);
+}
+
+/* Logo Glow Effect */
+.logo-glow {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    var(--logo-glow) 0%,
+    rgba(157, 0, 255, 0.2) 40%,
+    rgba(157, 0, 255, 0) 70%
+  );
+  filter: blur(20px);
+  opacity: 0.8;
+  z-index: -1;
+  will-change: transform;
+}
+
+/* Logo Content */
+.logo-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.logo-content.center {
+  animation: pulse-logo 3s infinite alternate;
+}
+
+.logo-content.corner {
+  transform-origin: center;
+}
+
+/* SVG Logo */
+.logo-svg {
+  width: 120px;
+  height: 120px;
+  will-change: transform;
+}
+
+/* SVG Logo paths */
+.logo-path {
+  fill: transparent;
+  stroke: white;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 8px var(--logo-primary));
+  will-change: stroke-dashoffset, transform;
+}
+
+.logo-path-1 {
+  stroke: var(--logo-primary);
+}
+
+.logo-path-2 {
+  stroke: var(--logo-secondary);
+}
+
+.logo-path-3 {
+  stroke: var(--logo-accent);
+}
+
+.logo-circle {
+  fill: white;
+  filter: drop-shadow(0 0 5px var(--logo-primary));
+}
+
+/* Corner state - filled paths */
+.corner .logo-path {
+  fill: rgba(255, 255, 255, 0.2);
+  transition: fill 0.5s ease;
+}
+
+.corner .logo-path-1:hover,
+.corner .logo-path-2:hover,
+.corner .logo-path-3:hover {
+  fill: rgba(255, 255, 255, 0.5);
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Floating Particles */
+.logo-particle {
+  position: absolute;
+  background-color: var(--logo-secondary);
+  border-radius: 50%;
+  opacity: 0.7;
+  will-change: transform;
+}
+
+/* Loading Indicator */
+.loading-indicator {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.loading-dot {
+  width: 8px;
+  height: 8px;
+  margin: 0 4px;
+  border-radius: 50%;
+  background-color: white;
+  animation: pulse-dot 1s infinite ease-in-out;
+  will-change: transform, opacity;
+}
+
+/* Animations */
+@keyframes pulse-logo {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg);
+  }
+  100% {
+    transform: scale(1) rotate(-5deg);
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.2);
+    opacity: 0.7;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .logo-svg {
+    width: 100px;
+    height: 100px;
+  }
+
+  .logo-glow {
+    width: 160px;
+    height: 160px;
+  }
+
+  .corner-position {
+    top: 15px;
+    left: 15px;
+    transform: translate(0, 0) scale(0.4);
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-svg {
+    width: 80px;
+    height: 80px;
+  }
+
+  .logo-glow {
+    width: 120px;
+    height: 120px;
+  }
+
+  .corner-position {
+    top: 10px;
+    left: 10px;
+    transform: translate(0, 0) scale(0.35);
+  }
+
+  .loading-dot {
+    width: 6px;
+    height: 6px;
+    margin: 0 3px;
+  }
+}
